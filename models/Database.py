@@ -8,13 +8,20 @@ class Database:
         password = "root"
         db = "Restaurant_CourseVar91"
         self.__connection = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
-                                          DictCursor)
+                                            DictCursor)
         self.__cursor = self.__connection.cursor()
 
-    def execute(self, commands):
+    def __del__(self):
+        self.__connection.close()
+
+    def execute(self, commands, *args):
         result = []
         for query in commands:
-            if query.strip() != '':
+            if args:
+                self.__cursor.execute(query, args)
+                self.__connection.commit()
+            else:
                 self.__cursor.execute(query)
-                result.append(self.__cursor.fetchall())
+                self.__connection.commit()
+            result.append(self.__cursor.fetchall())
         return result

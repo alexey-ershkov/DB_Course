@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="/"  class="d-flex flex-column align-content-around" style="width: 50%">
+    <form action="" method="post"  class="d-flex flex-column align-content-around" style="width: 50%">
       <div class="form-group">
         <label>Месяц</label>
-          <select name="month" id="month" class="form-control">
+          <select name="month" class="form-control">
               <option value="1">Январь</option>
               <option value="2">Февраль</option>
               <option value="3">Март</option>
@@ -21,8 +21,9 @@
       </div>
       <div class="form-group">
         <label>Год</label>
-        <input type="number" min="2000" max="2100"  class="form-control" id="year">
+        <input type="number" min="2000" max="2100"  class="form-control" name="year">
       </div>
       <button type="submit" class="btn btn-lg  btn-dark">Submit</button>
+      <a href="/" class="btn mt-3 btn-outline-dark btn-lg btn-block" >Назад</a>
     </form>
 {% endblock %}

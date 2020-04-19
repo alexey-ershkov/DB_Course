@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for key in result[0] %}
+        <h1 class="text-center">{{ result[0][key] }}</h1>
+    {% endfor %}
+    <a href="/" class="btn mt-5 btn-outline-dark btn-lg btn-block" >Назад</a>
+{% endblock %}

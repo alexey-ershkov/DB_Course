@@ -1,5 +1,5 @@
 {% if route.active == True  %}
-    <a class="btn-dark shadow mb-3 rounded p-3 text-decoration-none active "  href="{{ route.href  }}"> {{ route.name }} </a>
+    <a class="btn-dark mb-3 rounded p-3 text-decoration-none active "  href="{{ route.href  }}"> {{ route.name }} </a>
 {% else %}
-    <a class="btn-outline-dark mb-3 shadow rounded border-dark border p-3 text-decoration-none "  href="{{ route.href  }}"> {{ route.name }} </a>
+    <a class="btn-outline-dark mb-3 rounded border-dark border p-3 text-decoration-none "  href="{{ route.href  }}"> {{ route.name }} </a>
 {% endif %}

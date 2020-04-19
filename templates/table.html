@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if result|length != 0 %}
+        <table class="table table-bordered  p-5">
+            <thead class="thead-dark">
+                <tr>
+                    {% for key in result[0] %}
+                        <th scope="col">{{ key }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in result %}
+                    <tr>
+                        {% for key in line %}
+                            <th scope="col">{{ line[key]  }}</th>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+         <h1 class="text-center"> Нет данных, удволетворяющих запросу</h1>
+    {% endif %}
+    <a href="/" class="btn mt-5  btn-outline-dark btn-lg btn-block" >Назад</a>
+{% endblock %}

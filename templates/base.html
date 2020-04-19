@@ -20,15 +20,15 @@
     </div>
     <hr>
     <div class="row" style="height: 85vh">
-          <div class="col-4">
+          <div class="col-3 d-flex align-items-center">
             <div class="nav flex-column" >
                 {% for route in routes %}
                     {% include 'includes/reference.html' %}
                 {% endfor %}
             </div>
           </div>
-          <div class="col-8 d-flex align-items-center justify-content-center">
-            <div class="tab-content ">
+          <div class="col-9 d-flex align-items-center justify-content-center">
+            <div class="tab-content d-flex flex-column align-items-center" style="width: 100%">
                      {% block content %} {% endblock %}
             </div>
           </div>

@@ -14,7 +14,6 @@ class Database:
     def execute(self, commands):
         result = []
         for query in commands:
-            print(query)
             if query.strip() != '':
                 self.__cursor.execute(query)
                 result.append(self.__cursor.fetchall())

@@ -103,3 +103,14 @@ BEGIN
         SELECT 'Такой отчет уже сущствует' AS 'Статус';
     END IF;
 END;
+
+CREATE VIEW Room2017 (RoomNumber, Times) AS
+SELECT b.Room__Number, COUNT(b.Room__Number) FROM Booking b
+WHERE YEAR(b.DateTime) = 2017
+GROUP BY b.Room__Number;
+
+SELECT r.Number, r.Name, r.Places FROM room2017 rv
+JOIN Room r ON r.Number = rv.RoomNumber
+WHERE rv.Times IN (
+    SELECT MAX(rov.Times) FROM room2017 rov
+);

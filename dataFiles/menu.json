@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Составить отчет о банкетах в марте 2017 года",
+    "url": "/1",
+    "active": false,
+    "innerName": "first_query",
+    "queryFilename": "SqlQueries/1.sql",
+    "type": "table"
+  },
+  {
+    "name": "Составить отчет о работе менеджеров в марте 2017",
+    "url": "/2",
+    "active": false,
+    "innerName": "second_query",
+    "queryFilename": "SqlQueries/2.sql",
+    "type": "table"
+  },
+  {
+    "name": "Показать все сведения о самом молодом менеджере",
+    "url": "/3",
+    "active": false,
+    "innerName": "third_query",
+    "queryFilename": "SqlQueries/3.sql",
+    "type": "table"
+  },
+  {
+    "name": "Показать сведения о менеджерах, которые пока не обслуживали ни один банкет, которые не приняли ни одного заказа",
+    "url": "/4",
+    "active": false,
+    "innerName": "forth_query",
+    "queryFilename": "SqlQueries/4.sql",
+    "type": "table"
+  },
+  {
+    "name": "Показать сведения о менеджерах, не принявших ни одного заказа в марте 2013 года",
+    "url": "/5",
+    "active": false,
+    "innerName": "fifth_query",
+    "queryFilename": "SqlQueries/5.sql",
+    "type": "table"
+  },
+  {
+    "name": "Показать сведения о зале, который чаще всех заказывали в 2017",
+    "url": "/6",
+    "active": false,
+    "innerName": "sixth_query",
+    "queryFilename": "SqlQueries/6.sql",
+    "type": "table"
+  },
+  {
+    "name": "Создать отчет о работе менеджеров за месяц",
+    "url": "/7",
+    "active": false,
+    "innerName": "form",
+    "queryFilename": "SqlQueries/7.sql",
+    "type": "form"
+  },
+  {
+    "name": "Показать отчет о работе менеджеров за месяц",
+    "url": "/8",
+    "active": false,
+    "innerName": "get_docs",
+    "queryFilename": "SqlQueries/8.sql",
+    "type": "form"
+  }
+]

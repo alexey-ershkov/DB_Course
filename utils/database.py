@@ -2,13 +2,12 @@ import pymysql
 
 
 class Database:
-    def __init__(self):
-        host = "127.0.0.1"
-        user = "root"
-        password = "root"
-        db = "Restaurant_CourseVar91"
-        self.__connection = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
-                                            DictCursor)
+    def __init__(self, config):
+        self.__connection = pymysql.connect(host=config['host'],
+                                            user=config['user'],
+                                            password=config['password'],
+                                            db=config['db'],
+                                            cursorclass=pymysql.cursors.DictCursor)
         self.__cursor = self.__connection.cursor()
 
     def __del__(self):

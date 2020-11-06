@@ -14,8 +14,15 @@ def create_login_blueprint(app):
                 password = request.form["password"]
                 user = db.execute(sql_parser('./SqlQueries/get_user_info.sql'), login)[0]
                 if len(user) == 0 or user[0]["password"] != password:
-                    return render_template('login_form.html')
+                    if len(user) != 0:
+                        password_error = user[0]["password"] != password
+                    else:
+                        password_error = True
+                    return render_template('login_form.html', login_error=len(user) == 0,
+                                           password_error=password_error, login=login)
                 session['role'] = user[0]['role']
+                session['name'] = user[0]['name']
+                session['surname'] = user[0]['surname']
                 return redirect('/')
         else:
             return render_template('login_form.html')

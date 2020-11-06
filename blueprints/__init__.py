@@ -1,3 +1,4 @@
 from blueprints.create_table import create_table_blueprint
 from blueprints.create_form import create_form_blueprint
 from blueprints.create_login import create_login_blueprint
+from blueprints.create_logout import create_logout_blueprint

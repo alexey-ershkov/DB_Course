@@ -10,12 +10,17 @@ def create_table_blueprint(root_config, routes, query_filename, inner_name):
         curr_role = session.get('role')
         if curr_role is None:
             return redirect('/login')
+        name = session.get('name')
+        surname = session.get('surname')
         if curr_role not in routes.get_access_config_by_inner_name(inner_name):
-            return render_template('access_denied.html', routes=routes.get_routes_by_role(curr_role))
+            routes.clear()
+            return render_template('access_denied.html', routes=routes.get_routes_by_role(curr_role), name=name,
+                                   surname=surname)
         config = create_role_config(root_config)
         with UseDb(config) as db:
             routes.set_active(routes.get_url_by_inner_name(inner_name))
             ans = db.execute(sql_parser(query_filename))
-            return render_template('table.html', routes=routes.get_routes_by_role(curr_role), result=ans[0])
+            return render_template('table.html', routes=routes.get_routes_by_role(curr_role), result=ans[0], name=name,
+                                   surname=surname)
 
     return table_blueprint

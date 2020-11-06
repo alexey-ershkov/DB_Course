@@ -1,0 +1,1 @@
+select * from InnerUsers where login = %s;

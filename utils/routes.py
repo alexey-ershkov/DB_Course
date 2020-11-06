@@ -10,10 +10,19 @@ class Routes:
     def get_routes(self):
         return self.__routes
 
+    def get_routes_by_role(self, role):
+        return list(filter(lambda elem: role in elem["access"], self.__routes))
+
     def get_url_by_inner_name(self, inner_name):
         for route in self.__routes:
             if route["innerName"] == inner_name:
                 return route["url"]
+        return None
+
+    def get_access_config_by_inner_name(self, inner_name):
+        for route in self.__routes:
+            if route["innerName"] == inner_name:
+                return route["access"]
         return None
 
     def set_active(self, route_name):

@@ -20,22 +20,27 @@
     </div>
     <hr>
     <div class="row mt-5">
-          <div class="col-3 d-flex align-items-center">
-            <div class="nav flex-column" >
-                {% for route in routes %}
-                    {% include 'includes/reference.html' %}
-                {% endfor %}
+        {% if routes %}
+            <div class="col-3 d-flex align-items-center">
+                <div class="nav flex-column">
+                    {% for route in routes %}
+                        {% include 'includes/reference.html' %}
+                    {% endfor %}
+                </div>
             </div>
-          </div>
-          <div class="col-9 d-flex align-items-center justify-content-center">
-            <div class="tab-content d-flex flex-column align-items-center" style="width: 100%">
-                     {% block content %} {% endblock %}
-            </div>
-          </div>
-    </div>
-    <footer class="d-block bg-dark fixed-bottom d-flex align-items-center justify-content-around" style="height: 6vh; border-radius: 25px 25px 0 0;">
+            <div class="col-9 d-flex align-items-center justify-content-center">
+        {% else %}
+            <div class="col-12 d-flex align-items-center justify-content-center" style="height: 70vh;">
+        {% endif %}
+        <div class="tab-content d-flex flex-column align-items-center" style="width: 100%">
+            {% block content %} {% endblock %}
+        </div>
+        </div>
+        </div>
+        <footer class="d-block bg-dark fixed-bottom d-flex align-items-center justify-content-around"
+                style="height: 6vh; border-radius: 25px 25px 0 0;">
             <h5 class="text-light mt-2">Выполнил студент РК6-43б Ершков Алексей</h5>
-    </footer>
-</div>
+        </footer>
+    </div>
 </body>
 </html>

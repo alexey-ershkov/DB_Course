@@ -26,6 +26,7 @@ with open("dataFiles/db_connect.json", "r") as config_file:
 
 app.register_blueprint(blueprints.create_login_blueprint(app))
 app.register_blueprint(blueprints.create_logout_blueprint())
+app.register_blueprint(blueprints.create_order_blueprint(app.config['db_config'], routes))
 
 for route_info in routes.get_routes:
     if route_info['type'] == 'table':

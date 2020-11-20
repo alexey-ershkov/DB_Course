@@ -33,7 +33,7 @@
     "innerName": "forth_query",
     "queryFilename": "SqlQueries/4.sql",
     "type": "table",
-    "access":  ["admin", "manager"]
+    "access":  ["manager"]
   },
   {
     "name": "Показать сведения о менеджерах, не принявших ни одного заказа в марте 2013 года",

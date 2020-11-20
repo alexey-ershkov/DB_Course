@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for order in orders %}
+        <div class="col-5">
+            <div class="card m-3">
+                <h5 class="card-header">{{ order.Room__Number }}</h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{ order.name }}</h5>
+                    <p class="card-text">
+                        <b>Стоимость</b> {{ order.RealCost }}<br>
+                        <b>Внесено</b> {{ order.PrePayment }}<br>
+                        <b>Количество гостей</b> {{ order.Participants }}<br>
+                    </p>
+                    <a href="/order?id={{ order.id }}" class="btn btn-dark">Подробнее о заказе</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

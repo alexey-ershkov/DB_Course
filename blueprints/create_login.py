@@ -23,6 +23,7 @@ def create_login_blueprint(app):
                 session['role'] = user[0]['role']
                 session['name'] = user[0]['name']
                 session['surname'] = user[0]['surname']
+                session['manager_id'] = user[0]['manager_id']
                 return redirect('/')
         else:
             return render_template('login_form.html')

@@ -1,0 +1,1 @@
+select Number, Dish, Cost, `Weight(grams)` as weight from Menu;

@@ -1,0 +1,1 @@
+insert into BookingString (Booking_ID, `Dish__Menu-Number`, Count) values (%s, %s, %s);

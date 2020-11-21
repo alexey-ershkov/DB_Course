@@ -1,20 +1,44 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-    {% for order in orders %}
-        <div class="col-5">
-            <div class="card m-3">
-                <h5 class="card-header">{{ order.Room__Number }}</h5>
-                <div class="card-body">
-                    <h5 class="card-title">{{ order.name }}</h5>
-                    <p class="card-text">
-                        <b>Стоимость</b> {{ order.RealCost }}<br>
-                        <b>Внесено</b> {{ order.PrePayment }}<br>
-                        <b>Количество гостей</b> {{ order.Participants }}<br>
-                    </p>
-                    <a href="/order?id={{ order.id }}" class="btn btn-dark">Подробнее о заказе</a>
-                </div>
+    <div class="container-fluid mt-5">
+        <div class="row d-flex align-items-start justify-content-center">
+            <div class="col-4" style="background-color: white">
+                <h1 class="display-3">{{ header.name }}</h1>
+                <p class="lead">
+                    <b>Количество участников:</b> {{ header.Participants }} <br>
+                    <b>Предвариетльная стоимость:</b> {{ header.PreCost }} <br>
+                    <b>Стоимость после пересчета:</b> {{ header.RealCost }}<br>
+                    <b>Предоплата:</b> {{ header.PrePayment }} <br>
+                    <b>Комната:</b> {{ header.Room__Number }} <br>
+                    <b>Дата и время:</b> {{ header.DateTime }}
+                </p>
+                <hr>
+                <h1 class="display-3">Уже заказано и оформлено</h1>
+                {% for item in ordered %}
+                    <h5>{{ item.Dish }} <span class="badge badge-dark">{{ item.Count }}</span></h5>
+                {% endfor %}
             </div>
+            <div class="col-4">
+                <h1 class="display-3">Добавить к заказу</h1>
+                {% for menu_item in menu %}
+                    {% include 'includes/menu_item.html' %}
+                {% endfor %}
+            </div>
+            {% if pre_ordered %}
+                <div class="col-4">
+                    <h1 class="display-3">Офоромить заказ</h1>
+                    {% for item in pre_ordered %}
+                        <h5>{{ item.name }} <span class="badge badge-dark">{{ item.count }}</span></h5>
+                    {% endfor %}
+                    <form action="" method="post">
+                        <input type="hidden" name="type" value="update">
+                        <input type="hidden" name="order_id" value="{{ header.ID }}">
+                        <button type="submit" class="btn btn-dark mb-2">Оформить заказ</button>
+                    </form>
+                </div>
+            {% endif %}
         </div>
-    {% endfor %}
+    </div>
 {% endblock %}
